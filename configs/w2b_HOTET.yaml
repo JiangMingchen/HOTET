@@ -1,0 +1,30 @@
+DIM: 2
+SEED: 33
+BATCH_SIZE: 1024
+GPU_DEVICE: 1
+BENCHMARK: 'Mix3toMix10'
+MAX_ITER: 5001
+LR: 0.001
+INNER_ITERS: 20
+emb_method: 'transformer'
+D_HYPERPARAMS:
+  # ICNN & MLP
+  in_dim: 8
+  hidden_layer_sizes:
+    - 64
+    - 64
+    - 32
+  # ICNN only
+  rank: 1
+  strong_convexity: 0.0001
+  dropout: 0.00
+  activation: celu
+h_hyperparams:
+  uncond_in_size: 0
+  cond_in_size: 2
+  layers:
+    - 64
+    - 64
+    - 64
+  num_cond_embs: 1
+COND_IN_SIZE: 128
